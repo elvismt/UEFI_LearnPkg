@@ -1,0 +1,45 @@
+# 
+# Copyright 2017 Elvis M. Teixeira
+# 
+# Permission is hereby granted, free of charge, to any person
+# obtaining a copy of this software and associated documentation
+# files (the "Software"), to  deal in the Software without
+# restriction, including without limitation the rights to use,
+# copy, modify, merge, publish, distribute, sublicense, and/or
+# sell copies of the Software, and to permit persons to whom the
+# Software is furnished to do so, subject to the following
+# conditions:
+# 
+# The above copyright notice and this permission notice shall be
+# included in all copies or substantial portions of the Software.
+# 
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+# EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+# OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+# NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+# HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+# WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+# OTHER DEALINGS IN THE SOFTWARE.
+
+[Defines]
+  DEC_SPECIFICATION              = 0x00010005
+  PACKAGE_NAME                   = LearnPkg
+  PACKAGE_GUID                   = c8f9ed13-37f7-45af-951c-c0516dc6b6a5
+  PACKAGE_VERSION                = 0.01
+
+
+[Guids]
+  gLearnPkgTokenSpaceGuid          = { 0xe7e1ea56, 0x7a57, 0x4a78, { 0xa7, 0xdd, 0x43, 0xa5, 0xbd, 0x72, 0xc0, 0x99 }}
+
+
+[PcdsFixedAtBuild]
+  gLearnPkgTokenSpaceGuid.DataSource_Port|1234|UINT16|0
+  gLearnPkgTokenSpaceGuid.Tftp_AckLogBase|4|UINT32|1
+  gLearnPkgTokenSpaceGuid.Tftp_AckMultiplier|4|UINT32|2
+  gLearnPkgTokenSpaceGuid.Tftp_Bandwidth|0|BOOLEAN|3
+  gLearnPkgTokenSpaceGuid.Tftp_HighSpeed|0|BOOLEAN|4
+  gLearnPkgTokenSpaceGuid.Tftp_MaxRetry|10|UINT32|5
+  gLearnPkgTokenSpaceGuid.Tftp_MaxTimeoutInSec|3|UINT32|6
+  gLearnPkgTokenSpaceGuid.WebServer_HttpPort|80|UINT16|7
+
