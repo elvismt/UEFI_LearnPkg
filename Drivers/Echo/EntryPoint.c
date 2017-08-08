@@ -45,6 +45,14 @@ EchoDriverEntryPoint (
 
     DEBUG((EFI_D_INFO, "Loading Echo driver\n"));
 
+    Status = gBS->InstallMultipleProtocolInterfaces (
+        &ImageHandle,
+        &gEfiDriverSupportedEfiVersionProtocolGuid,
+        &gEchoSupportedEfiVersion,
+        NULL
+        );
+    ASSERT_EFI_ERROR (Status);
+
     Status = EfiLibInstallDriverBindingComponentName2 (
         ImageHandle,
         SystemTable,

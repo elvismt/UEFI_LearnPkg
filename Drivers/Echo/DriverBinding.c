@@ -36,12 +36,35 @@ EchoDriverBindingSupported (
     return EFI_UNSUPPORTED;
 }
 
+EFI_STATUS
+EFIAPI
+EchoDriverBindingStart (
+    IN  EFI_DRIVER_BINDING_PROTOCOL *This,
+    IN  EFI_HANDLE ControllerHandle,
+    IN  EFI_DEVICE_PATH_PROTOCOL *RemainingDevicePath OPTIONAL
+)
+{
+    return EFI_UNSUPPORTED;
+}
+
+EFI_STATUS
+EFIAPI
+EchoDriverBindingStop (
+    IN EFI_DRIVER_BINDING_PROTOCOL *This,
+    IN EFI_HANDLE ControllerHandle,
+    IN UINTN NumberOfChildren,
+    IN EFI_HANDLE *ChildHandleBuffer OPTIONAL
+)
+{
+    return EFI_UNSUPPORTED;
+}
+
 EFI_DRIVER_BINDING_PROTOCOL
 gEchoDriverBinding = {
     EchoDriverBindingSupported,
-    NULL,
-    NULL,
-    0,
+    EchoDriverBindingStart,
+    EchoDriverBindingStop,
+    ECHO_DRIVER_VERSION,
     NULL,
     NULL,
 };

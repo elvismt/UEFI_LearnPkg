@@ -34,4 +34,7 @@
 #include <Library/UefiLib.h>
 #include <Library/DebugLib.h>
 
+#define ECHO_DRIVER_VERSION  0x000026EAu
+
 #endif /* __ECHO_DRIVER_H__ */
+
