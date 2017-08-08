@@ -28,7 +28,8 @@
   FILE_GUID                      = d775ffa2-80ad-4bf7-bee6-71820bee3175
   MODULE_TYPE                    = UEFI_DRIVER
   VERSION_STRING                 = 0.1
-  ENTRY_POINT                    = EchoDriverEntryPoint
+  ENTRY_POINT                    = EchoDriverLoad
+  UNLOAD_IMAGE                   = EchoDriverUnload
 
 #
 #  VALID_ARCHITECTURES           = IA32 X64 IPF
@@ -36,7 +37,7 @@
 
 [Sources]
   EchoDriver.h
-  EntryPoint.c
+  EchoDriver.c
   ComponentName.h
   ComponentName.c
   DriverBinding.h
