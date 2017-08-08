@@ -113,6 +113,7 @@
 [Components]
 
   LearnPkg/Applications/Hello/Hello.inf
+  LearnPkg/Drivers/Echo/Echo.inf
 
 DEFINE EMULATE = 1
 !include StdLib/StdLib.inc

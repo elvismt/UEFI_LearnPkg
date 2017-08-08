@@ -32,6 +32,8 @@
 [Guids]
   gLearnPkgTokenSpaceGuid          = { 0xe7e1ea56, 0x7a57, 0x4a78, { 0xa7, 0xdd, 0x43, 0xa5, 0xbd, 0x72, 0xc0, 0x99 }}
 
+[Includes]
+  Drivers
 
 [PcdsFixedAtBuild]
   gLearnPkgTokenSpaceGuid.DataSource_Port|1234|UINT16|0
