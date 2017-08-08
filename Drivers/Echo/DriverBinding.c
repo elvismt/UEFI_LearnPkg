@@ -23,39 +23,28 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-#include <Echo/ComponentName.h>
 #include <Echo/DriverBinding.h>
-#include <Protocol/DriverSupportedEfiVersion.h>
-
-GLOBAL_REMOVE_IF_UNREFERENCED
-EFI_DRIVER_SUPPORTED_EFI_VERSION_PROTOCOL
-gEchoSupportedEfiVersion = {
-    sizeof(EFI_DRIVER_SUPPORTED_EFI_VERSION_PROTOCOL),
-    EFI_2_60_SYSTEM_TABLE_REVISION
-};
 
 EFI_STATUS
 EFIAPI
-EchoDriverEntryPoint (
-  IN EFI_HANDLE        ImageHandle,
-  IN EFI_SYSTEM_TABLE  *SystemTable
-  )
+EchoDriverBindingSupported (
+    IN  EFI_DRIVER_BINDING_PROTOCOL *This,
+    IN  EFI_HANDLE ControllerHandle,
+    IN  EFI_DEVICE_PATH_PROTOCOL *RemainingDevicePath OPTIONAL
+)
 {
-    EFI_STATUS Status = EFI_SUCCESS;
-
-    DEBUG((EFI_D_INFO, "Loading Echo driver\n"));
-
-    Status = EfiLibInstallDriverBindingComponentName2 (
-        ImageHandle,
-        SystemTable,
-        &gEchoDriverBinding,
-        ImageHandle,
-        &gEchoComponentName,
-        &gEchoComponentName2
-        );
-    ASSERT_EFI_ERROR (Status);
-
-    DEBUG((EFI_D_INFO, "Echo driver loaded\n"));
-    return Status;
+    return EFI_UNSUPPORTED;
 }
+
+EFI_DRIVER_BINDING_PROTOCOL
+gEchoDriverBinding = {
+    EchoDriverBindingSupported,
+    NULL,
+    NULL,
+    0,
+    NULL,
+    NULL,
+};
+
+/* Echo/DriverBinding.c */
 

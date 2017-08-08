@@ -39,6 +39,8 @@
   EntryPoint.c
   ComponentName.h
   ComponentName.c
+  DriverBinding.h
+  DriverBinding.c
 
 [Packages]
   MdePkg/MdePkg.dec

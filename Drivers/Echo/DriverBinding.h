@@ -23,39 +23,13 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-#include <Echo/ComponentName.h>
-#include <Echo/DriverBinding.h>
-#include <Protocol/DriverSupportedEfiVersion.h>
+#ifndef __ECHO_DRIVER_BINDING_H__
+#define __ECHO_DRIVER_BINDING_H__
 
-GLOBAL_REMOVE_IF_UNREFERENCED
-EFI_DRIVER_SUPPORTED_EFI_VERSION_PROTOCOL
-gEchoSupportedEfiVersion = {
-    sizeof(EFI_DRIVER_SUPPORTED_EFI_VERSION_PROTOCOL),
-    EFI_2_60_SYSTEM_TABLE_REVISION
-};
+#include <Echo/EchoDriver.h>
+#include <Protocol/DriverBinding.h>
 
-EFI_STATUS
-EFIAPI
-EchoDriverEntryPoint (
-  IN EFI_HANDLE        ImageHandle,
-  IN EFI_SYSTEM_TABLE  *SystemTable
-  )
-{
-    EFI_STATUS Status = EFI_SUCCESS;
+extern EFI_DRIVER_BINDING_PROTOCOL gEchoDriverBinding;
 
-    DEBUG((EFI_D_INFO, "Loading Echo driver\n"));
-
-    Status = EfiLibInstallDriverBindingComponentName2 (
-        ImageHandle,
-        SystemTable,
-        &gEchoDriverBinding,
-        ImageHandle,
-        &gEchoComponentName,
-        &gEchoComponentName2
-        );
-    ASSERT_EFI_ERROR (Status);
-
-    DEBUG((EFI_D_INFO, "Echo driver loaded\n"));
-    return Status;
-}
+#endif /* __ECHO_DRIVER_BINDING_H__ */
 
