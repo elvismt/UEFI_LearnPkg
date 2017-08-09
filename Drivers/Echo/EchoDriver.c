@@ -45,24 +45,28 @@ EchoDriverLoad (
 
     DEBUG((EFI_D_INFO, "Loading Echo driver\n"));
 
-    Status = gBS->InstallMultipleProtocolInterfaces (
-        &ImageHandle,
+    gEchoDriverBinding.ImageHandle = ImageHandle;
+    gEchoDriverBinding.DriverBindingHandle = ImageHandle;
+
+    Status = gBS->UninstallMultipleProtocolInterfaces (
+        ImageHandle
+        ,
         &gEfiDriverSupportedEfiVersionProtocolGuid,
-        &gEchoSupportedEfiVersion,
-        NULL
-        );
-    ASSERT_EFI_ERROR (Status);
-
-    Status = EfiLibInstallDriverBindingComponentName2 (
-        ImageHandle,
-        SystemTable,
-        &gEchoDriverBinding,
-        ImageHandle,
-        &gEchoComponentName,
+        &gEchoSupportedEfiVersion
+        ,
+        &gEfiDriverBindingProtocolGuid,
+        &gEchoDriverBinding
+        ,
+        &gEfiComponentNameProtocolGuid,
+        &gEchoComponentName
+        ,
+        &gEfiComponentName2ProtocolGuid,
         &gEchoComponentName2
-        );
-    ASSERT_EFI_ERROR (Status);
+        ,
+        NULL
+    );
 
+    ASSERT_EFI_ERROR (Status);
     DEBUG((EFI_D_INFO, "Echo driver loaded\n"));
     return Status;
 }
@@ -78,29 +82,26 @@ EchoDriverUnload (
     DEBUG((EFI_D_INFO, "Unloading Echo driver\n"));
 
     Status = gBS->UninstallMultipleProtocolInterfaces (
-            ImageHandle
-            ,
-            &gEfiDriverSupportedEfiVersionProtocolGuid,
-            &gEchoSupportedEfiVersion
-            ,
-            &gEfiDriverBindingProtocolGuid,
-            &gEchoDriverBinding
-            ,
-            &gEfiComponentNameProtocolGuid,
-            &gEchoComponentName
-            ,
-            &gEfiComponentName2ProtocolGuid,
-            &gEchoComponentName2
-            ,
-            NULL
-            );
-    if (EFI_ERROR (Status)) {
-        DEBUG((EFI_D_ERROR, "Echo driver could not be unloaded\n"));
-        return Status;
-    }
+        ImageHandle
+        ,
+        &gEfiDriverSupportedEfiVersionProtocolGuid,
+        &gEchoSupportedEfiVersion
+        ,
+        &gEfiDriverBindingProtocolGuid,
+        &gEchoDriverBinding
+        ,
+        &gEfiComponentNameProtocolGuid,
+        &gEchoComponentName
+        ,
+        &gEfiComponentName2ProtocolGuid,
+        &gEchoComponentName2
+        ,
+        NULL
+    );
 
+    ASSERT_EFI_ERROR (Status);
     DEBUG((EFI_D_INFO, "Echo driver unloaded\n"));
-    return EFI_SUCCESS;
+    return Status;
 }
 
 /* Echo/EchoDriver.c */

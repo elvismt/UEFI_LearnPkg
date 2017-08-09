@@ -29,19 +29,6 @@
   PACKAGE_VERSION                = 0.01
 
 
-[Guids]
-  gLearnPkgTokenSpaceGuid          = { 0xe7e1ea56, 0x7a57, 0x4a78, { 0xa7, 0xdd, 0x43, 0xa5, 0xbd, 0x72, 0xc0, 0x99 }}
-
 [Includes]
   Drivers
-
-[PcdsFixedAtBuild]
-  gLearnPkgTokenSpaceGuid.DataSource_Port|1234|UINT16|0
-  gLearnPkgTokenSpaceGuid.Tftp_AckLogBase|4|UINT32|1
-  gLearnPkgTokenSpaceGuid.Tftp_AckMultiplier|4|UINT32|2
-  gLearnPkgTokenSpaceGuid.Tftp_Bandwidth|0|BOOLEAN|3
-  gLearnPkgTokenSpaceGuid.Tftp_HighSpeed|0|BOOLEAN|4
-  gLearnPkgTokenSpaceGuid.Tftp_MaxRetry|10|UINT32|5
-  gLearnPkgTokenSpaceGuid.Tftp_MaxTimeoutInSec|3|UINT32|6
-  gLearnPkgTokenSpaceGuid.WebServer_HttpPort|80|UINT16|7
 
