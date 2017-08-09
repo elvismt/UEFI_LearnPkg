@@ -49,20 +49,15 @@ EchoDriverLoad (
     gEchoDriverBinding.DriverBindingHandle = ImageHandle;
 
     Status = gBS->UninstallMultipleProtocolInterfaces (
-        ImageHandle
-        ,
+        ImageHandle,
         &gEfiDriverSupportedEfiVersionProtocolGuid,
-        &gEchoSupportedEfiVersion
-        ,
+        &gEchoSupportedEfiVersion,
         &gEfiDriverBindingProtocolGuid,
-        &gEchoDriverBinding
-        ,
+        &gEchoDriverBinding,
         &gEfiComponentNameProtocolGuid,
-        &gEchoComponentName
-        ,
+        &gEchoComponentName,
         &gEfiComponentName2ProtocolGuid,
-        &gEchoComponentName2
-        ,
+        &gEchoComponentName2,
         NULL
     );
 
@@ -82,20 +77,15 @@ EchoDriverUnload (
     DEBUG((EFI_D_INFO, "Unloading Echo driver\n"));
 
     Status = gBS->UninstallMultipleProtocolInterfaces (
-        ImageHandle
-        ,
+        ImageHandle,
         &gEfiDriverSupportedEfiVersionProtocolGuid,
-        &gEchoSupportedEfiVersion
-        ,
+        &gEchoSupportedEfiVersion,
         &gEfiDriverBindingProtocolGuid,
-        &gEchoDriverBinding
-        ,
+        &gEchoDriverBinding,
         &gEfiComponentNameProtocolGuid,
-        &gEchoComponentName
-        ,
+        &gEchoComponentName,
         &gEfiComponentName2ProtocolGuid,
-        &gEchoComponentName2
-        ,
+        &gEchoComponentName2,
         NULL
     );
 
