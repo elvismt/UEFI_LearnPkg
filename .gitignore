@@ -1,4 +1,4 @@
 *.swp
 .tags
 .directory
-
+serial_output.txt
