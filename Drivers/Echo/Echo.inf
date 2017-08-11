@@ -59,5 +59,8 @@
   DevicePathLib
 
 [Protocols]
-  gEfiDriverSupportedEfiVersionProtocolGuid # CONSUMED
+  gEfiDriverSupportedEfiVersionProtocolGuid
+  gEfiDriverBindingProtocolGuid
+  gEfiComponentNameProtocolGuid
+  gEfiComponentName2ProtocolGuid
 

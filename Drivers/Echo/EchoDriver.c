@@ -48,8 +48,8 @@ EchoDriverLoad (
     gEchoDriverBinding.ImageHandle = ImageHandle;
     gEchoDriverBinding.DriverBindingHandle = ImageHandle;
 
-    Status = gBS->UninstallMultipleProtocolInterfaces (
-        ImageHandle,
+    Status = gBS->InstallMultipleProtocolInterfaces (
+        &ImageHandle,
         &gEfiDriverSupportedEfiVersionProtocolGuid,
         &gEchoSupportedEfiVersion,
         &gEfiDriverBindingProtocolGuid,
