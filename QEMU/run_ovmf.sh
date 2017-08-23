@@ -35,7 +35,7 @@ fi
 FIRMWARE="-drive file=$1,format=raw,if=pflash"
 VIRTUAL_HDD="-drive id=nvme0,file=fat:wr:harddisk,format=raw,if=none"
 VIRTUAL_HDD="$VIRTUAL_HDD -device nvme,drive=nvme0,serial=1234"
-MACHINE="-m 1G -machine q35 -cpu Broadwell"
+MACHINE="-m 1G -machine q35"
 SERIAL_OUTPUT="-serial file:serial_output.txt"
 
 if [[ -f 'serial_output.txt' ]]; then
